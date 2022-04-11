@@ -6,15 +6,14 @@ import { map, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
   private _subscription = new Subscription();
 
   constructor(private readonly titleService: Title, private readonly translateService: TranslateService) {
-    this.translateService.setDefaultLang(LANG.EN);
     this.translateService.use(LANG.EN);
+    this.translateService.setDefaultLang(LANG.EN);
   }
 
   ngOnInit(): void {

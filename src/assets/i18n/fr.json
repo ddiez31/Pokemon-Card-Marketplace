@@ -1,5 +1,11 @@
 {
     "app-name": "Cartes Pokemon E-Commerce",
+    "titles": {
+        "cart": "panier"
+    },
+    "routes": {
+        "cart": "panier"
+    },
     "header": {
         "cart-tooltip": "Montant du panier: {{amount}}"
     }
