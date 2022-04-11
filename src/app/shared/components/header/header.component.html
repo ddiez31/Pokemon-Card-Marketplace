@@ -1,10 +1,13 @@
 <mat-toolbar color="primary" fxLayoutAlign="space-between center">
-    <a href="#">
+    <a routerLink="./">
        <img src="./assets/images/logo.png">
     </a>
 
     <div>
-        <button mat-icon-button [matTooltip]="'header.cart-tooltip' | translate: {amount: 150}">
+        <button 
+            mat-icon-button
+            [matTooltip]="'header.cart-tooltip' | translate: {amount: 150}"
+            (click)="navigateToCart()">
             <mat-icon 
                 class="material-icons-outlined"
                 matBadgePosition="before"

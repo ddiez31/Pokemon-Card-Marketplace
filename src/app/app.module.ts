@@ -13,6 +13,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared/shared.module';
+import { NgxTranslateRoutesModule } from 'ngx-translate-routes';
+import { LANG } from '@models/lang.model';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,12 +36,16 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     }),
     EffectsModule.forRoot([]),
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
+      defaultLanguage: LANG.EN,
+      useDefaultLang: true,
       loader: {
           provide: TranslateLoader,
           useFactory: (createTranslateLoader),
           deps: [HttpClient]
       }
+    }),
+    NgxTranslateRoutesModule.forRoot({
+      enableTitleTranslate: false
     }),
     SharedModule
   ],

@@ -1,5 +1,11 @@
 {
     "app-name": "Pokemon Card Marketplace",
+    "titles": {
+        "cart": "cart"
+    },
+    "routes": {
+        "cart": "cart"
+    },
     "header": {
         "cart-tooltip": "Cart amount: {{amount}}"
     }
