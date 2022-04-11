@@ -9,11 +9,10 @@ import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import {MatButtonModule} from '@angular/material/button';
+import { SharedModule } from './shared/shared.module';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,9 +40,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
           useFactory: (createTranslateLoader),
           deps: [HttpClient]
       }
-  }),
-
-  MatButtonModule
+    }),
+    SharedModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
