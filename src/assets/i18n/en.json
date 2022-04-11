@@ -1,3 +1,6 @@
 {
-    "app-name": "Pokemon Card Marketplace"
+    "app-name": "Pokemon Card Marketplace",
+    "header": {
+        "cart-tooltip": "Cart amount: {{amount}}"
+    }
 }

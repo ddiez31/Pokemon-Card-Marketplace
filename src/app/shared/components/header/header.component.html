@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" fxLayoutAlign="space-between center">
+    <a href="#">
+       <img src="./assets/images/logo.png">
+    </a>
+
+    <div>
+        <button mat-icon-button [matTooltip]="'header.cart-tooltip' | translate: {amount: 150}">
+            <mat-icon 
+                class="material-icons-outlined"
+                matBadgePosition="before"
+                matBadge="2"
+                matBadgeColor="accent"
+                matBadgeSize="small">
+                shopping_cart
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="changeLang(lang.FR)">
+            <img src="./assets/images/fr-flag-icon.png">
+        </button>    
+        <button mat-icon-button (click)="changeLang(lang.EN)">
+            <img src="./assets/images/uk-flag-icon.png">
+        </button>
+    </div>
+</mat-toolbar>
