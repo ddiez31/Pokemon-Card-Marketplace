@@ -8,4 +8,13 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-image: linear-gradient(rgba(255, 215, 64, 0.5), rgba(103, 58, 183, 0.5)),
+                    url('./assets/images/pokemon-in-the-wild.png');
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+.container {
+  margin: 24px;
+}
+

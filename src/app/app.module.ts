@@ -15,6 +15,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared/shared.module';
 import { NgxTranslateRoutesModule } from 'ngx-translate-routes';
 import { LANG } from '@models/lang.model';
+import { HomeModule } from './pages/home/home.module';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +48,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     NgxTranslateRoutesModule.forRoot({
       enableTitleTranslate: false
     }),
-    SharedModule
+    SharedModule,
+    HomeModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

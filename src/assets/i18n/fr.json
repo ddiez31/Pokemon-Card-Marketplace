@@ -8,5 +8,8 @@
     },
     "header": {
         "cart-tooltip": "Montant du panier: {{amount}}"
+    },
+    "card": {
+        "quantity": "Quantité"
     }
 }

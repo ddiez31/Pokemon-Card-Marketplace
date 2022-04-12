@@ -1,0 +1,26 @@
+<mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title>Venusaur-EX</mat-card-title>
+      <mat-card-subtitle>Pokémon</mat-card-subtitle>
+      <img mat-card-md-image src="https://images.pokemontcg.io/xy1/1.png" >
+    </mat-card-title-group>
+    <mat-card-content>
+        <p class="content">Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards.</p>
+        <span class="mat-card-title price">10 €</span>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions class="mat-card-actions" fxLayout="row" fxLayoutAlign="space-around center">
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>{{ "card.quantity" | translate }}</mat-label>
+            <input matInput type="number" [(ngModel)]="value" min="0">
+        </mat-form-field>
+        <div class="button-group">
+            <button mat-mini-fab [disabled]="value === 0" color="primary" (click)="addCart()">
+                <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+            <button mat-mini-fab [disabled]="value === 0" color="warn" (click)="reset()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>

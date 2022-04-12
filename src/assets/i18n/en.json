@@ -8,5 +8,8 @@
     },
     "header": {
         "cart-tooltip": "Cart amount: {{amount}}"
+    },
+    "card": {
+        "quantity": "Quantity"
     }
 }

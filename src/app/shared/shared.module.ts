@@ -7,25 +7,37 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { CardComponent } from './components/card/card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     TranslateModule,
     RouterModule,
+    FormsModule,
 
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatDividerModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, CardComponent]
 })
 export class SharedModule { }
