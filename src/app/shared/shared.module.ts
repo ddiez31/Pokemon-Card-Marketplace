@@ -15,6 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
+import { PokemonCardService } from './services/pokemon-card.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
   ],
-  exports: [HeaderComponent, CardComponent]
+  exports: [HeaderComponent, CardComponent],
+  providers: [PokemonCardService]
 })
 export class SharedModule { }
