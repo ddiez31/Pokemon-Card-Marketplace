@@ -21,4 +21,11 @@ export class PokemonCardService {
         catchError((error: HttpErrorResponse) => throwError(() => new Error(error.message)))
       );
   }
+
+  getRarityList(): Observable<string[]> {
+    return this.http.get<any>(`${this.apiUrl}/rarities`).pipe(
+        map((response) => response?.data || []),
+        catchError((error: HttpErrorResponse) => throwError(() => new Error(error.message)))
+      );
+  }
 }

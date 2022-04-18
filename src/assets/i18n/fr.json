@@ -9,7 +9,16 @@
     "header": {
         "cart-tooltip": "Montant du panier: {{amount}}"
     },
-    "card": {
-        "quantity": "Quantité"
+    "home": {
+        "card": {
+            "quantity": "Quantité"
+        },
+        "filter": {
+            "title": "Filtre par rareté"
+        },
+        "list": {
+            "title": "Liste des cartes disponibles",
+            "no-data": "Aucune carte trouvée..."
+        }
     }
 }

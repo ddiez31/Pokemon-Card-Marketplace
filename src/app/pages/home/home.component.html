@@ -6,8 +6,30 @@
     </mat-progress-spinner>
 </div>
 
-<div *ngIf="isLoaded$ | async" class="block" fxLayout="row" fxLayoutGap="20px">
-    <ng-container *ngFor="let pokemonCard of pokemonCards$ | async">
-        <app-card [data]="pokemonCard"></app-card>
-    </ng-container>
-</div>
+<ng-container *ngIf="isLoaded$ | async as isLoaded">
+    <div class="container">
+        <span>{{ 'home.filter.title' | translate }}:</span>
+        <mat-selection-list class="block" (selectionChange)="onListSelectionChange($event)" fxLayout="row" fxLayoutGap="20px">
+            <mat-list-option class="item" *ngFor="let rarity of rarities$ | async" [value]="rarity">
+                {{ rarity }}
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="container">
+        <span>{{ 'home.list.title' | translate }}:</span>
+        <div *ngIf="isLoaded" class="block" fxLayout="row" fxLayoutGap="20px">
+            <ng-container *ngIf="filteredPokemonCards$ | async as filteredPokemonCards">
+                <ng-container *ngIf="filteredPokemonCards.length > 0; else noData">
+                    <ng-container *ngFor="let pokemonCard of filteredPokemonCards$ | async">
+                        <app-card [pokemonCard]="pokemonCard"></app-card>
+                    </ng-container>
+                </ng-container>
+                <ng-template #noData>{{ 'home.list.no-data' | translate }}</ng-template>
+            </ng-container>            
+        </div>
+    </div>
+</ng-container>
+

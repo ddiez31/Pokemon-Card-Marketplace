@@ -9,7 +9,16 @@
     "header": {
         "cart-tooltip": "Cart amount: {{amount}}"
     },
-    "card": {
-        "quantity": "Quantity"
+    "home": {
+        "card": {
+            "quantity": "Quantity"
+        },
+        "filter": {
+            "title": "Filter by rarity"
+        },
+        "list": {
+            "title": "List of available cards",
+            "no-data": "No card found..."
+        }
     }
 }
