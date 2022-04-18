@@ -8,7 +8,7 @@ import { PokemonCard } from '@models/pokemon-card.model';
 })
 export class CardComponent implements OnInit {
   @Input()
-  data: PokemonCard = {} as PokemonCard;
+  pokemonCard: PokemonCard = {} as PokemonCard;
 
   public value = 0;
 

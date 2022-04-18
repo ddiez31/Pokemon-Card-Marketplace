@@ -3,7 +3,7 @@ import { CanActivate } from '@angular/router';
 import { PokemonCard } from '@models/pokemon-card.model';
 import { Store } from '@ngrx/store';
 import { State } from 'app/store';
-import { loadingPokemonCards } from 'app/store/pokemon-card.actions';
+import { loadingPokemonCards, loadingRarities } from 'app/store/pokemon-card.actions';
 import { selectPokemonCards } from 'app/store/pokemon-card.selectors';
 import { map, Observable, skipWhile, take } from 'rxjs';
 
@@ -18,7 +18,8 @@ export class PokemonCardGuard implements CanActivate {
       skipWhile((pokemonCards: PokemonCard[]) => pokemonCards === null),
       map((pokemonCards: PokemonCard[]) => {
         if (pokemonCards?.length === 0) {
-          this.store$.dispatch(loadingPokemonCards())
+          this.store$.dispatch(loadingPokemonCards());
+          this.store$.dispatch(loadingRarities());
           return true;
         }
 
