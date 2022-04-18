@@ -11,7 +11,10 @@ import { map, Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   private _subscription = new Subscription();
 
-  constructor(private readonly titleService: Title, private readonly translateService: TranslateService) {
+  constructor(
+    private readonly titleService: Title,
+    private readonly translateService: TranslateService,
+    ) {
     this.translateService.use(LANG.EN);
     this.translateService.setDefaultLang(LANG.EN);
   }

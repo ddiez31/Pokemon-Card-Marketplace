@@ -1,11 +1,13 @@
-<div class="block" fxLayout="row" fxLayoutGap="20px">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+<div *ngIf="isLoading$ | async" fxLayout="row" fxLayoutAlign="center center">
+    <mat-progress-spinner
+        *ngIf="isLoading$ | async"
+        [color]="color"
+        [mode]="mode">
+    </mat-progress-spinner>
+</div>
+
+<div *ngIf="isLoaded$ | async" class="block" fxLayout="row" fxLayoutGap="20px">
+    <ng-container *ngFor="let pokemonCard of pokemonCards$ | async">
+        <app-card [data]="pokemonCard"></app-card>
+    </ng-container>
 </div>
