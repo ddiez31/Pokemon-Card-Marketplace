@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PokemonCardService } from 'app/shared/services/pokemon-card.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { PokemonCard } from '@models/pokemon-card.model';
 
 @Component({
   selector: 'app-card',
@@ -7,14 +7,14 @@ import { PokemonCardService } from 'app/shared/services/pokemon-card.service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
+  @Input()
+  data: PokemonCard = {} as PokemonCard;
+
   public value = 0;
 
-  constructor(private readonly pokemonCardService: PokemonCardService) { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.pokemonCardService.getCardList().subscribe(
-      data => console.log(data)
-    )
   }
 
   addCart(): void {

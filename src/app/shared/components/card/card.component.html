@@ -1,12 +1,12 @@
 <mat-card class="card">
     <mat-card-title-group>
-      <mat-card-title>Venusaur-EX</mat-card-title>
-      <mat-card-subtitle>Pokémon</mat-card-subtitle>
-      <img mat-card-md-image src="https://images.pokemontcg.io/xy1/1.png" >
+      <mat-card-title>{{ data.name }}</mat-card-title>
+      <mat-card-subtitle>{{ data.rarity }}</mat-card-subtitle>
+      <img mat-card-md-image [src]="data.images.small" >
     </mat-card-title-group>
     <mat-card-content>
-        <p class="content">Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards.</p>
-        <span class="mat-card-title price">10 €</span>
+        <p class="content">{{ data.flavorText }}</p>
+        <span class="mat-card-title price">{{ data.cardmarket.prices.trendPrice }}€</span>
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions class="mat-card-actions" fxLayout="row" fxLayoutAlign="space-around center">

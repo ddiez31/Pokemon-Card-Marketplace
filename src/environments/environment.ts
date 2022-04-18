@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api.pokemontcg.io/v2/'
+  baseUrl: 'https://api.pokemontcg.io/v2'
 };
 
 /*

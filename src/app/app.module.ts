@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './store';
+import { metaReducers, reducerProvider, REDUCERS_TOKEN } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,6 +18,7 @@ import { LANG } from '@models/lang.model';
 import { HomeModule } from './pages/home/home.module';
 import { HttpModule } from './config/http.module';
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { PokemonCardsEffects } from './store/pokemon-card.effects';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,14 +32,14 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(REDUCERS_TOKEN, {
       metaReducers
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([PokemonCardsEffects]),
     TranslateModule.forRoot({
       defaultLanguage: LANG.EN,
       useDefaultLang: true,
@@ -56,6 +57,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   ],
   providers: [
     Title,
+    reducerProvider,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true  }
   ],
   bootstrap: [AppComponent]
