@@ -7,7 +7,7 @@
         "cart": "panier"
     },
     "header": {
-        "cart-tooltip": "Montant du panier: {{amount}}"
+        "cart-tooltip": "Montant du panier: {{amount}}€"
     },
     "home": {
         "card": {
@@ -19,6 +19,22 @@
         "list": {
             "title": "Liste des cartes disponibles",
             "no-data": "Aucune carte trouvée..."
+        }
+    },
+    "cart": {
+        "title": "Mon panier",
+        "no-data": "Votre panier est vide...",
+        "table": {
+            "id": "Identifiant",
+            "ref": "Référence",
+            "name": "Nom",
+            "quantity": "Quantité",
+            "unit-price": "Prix unitaire",
+            "total-amount-price": "Prix total",
+            "modify": "Modifier",
+            "add": "Ajouter",        
+            "remove": "Supprimer",
+            "total": "TOTAL"        
         }
     }
 }

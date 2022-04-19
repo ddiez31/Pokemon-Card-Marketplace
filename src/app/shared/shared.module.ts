@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from './components/card/card.component';
@@ -41,7 +42,8 @@ import { PokemonCardService } from './services/pokemon-card.service';
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   exports: [HeaderComponent, CardComponent],
   providers: [PokemonCardService]

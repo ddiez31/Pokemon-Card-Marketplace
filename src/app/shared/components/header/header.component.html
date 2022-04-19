@@ -1,17 +1,15 @@
 <mat-toolbar class="navbar" color="primary" fxLayoutAlign="space-between center">
-    <a routerLink="./">
-       <img src="./assets/images/logo.png">
-    </a>
+    <img src="./assets/images/logo.png" (click)="navigateTo(ROUTES.HOME)">
 
     <div>
         <button 
             mat-icon-button
-            [matTooltip]="'header.cart-tooltip' | translate: {amount: 150}"
-            (click)="navigateToCart()">
+            [matTooltip]="'header.cart-tooltip' | translate: {amount: (totalAmount$ | async)?.toFixed(2)}"
+            (click)="navigateTo(ROUTES.CART)">
             <mat-icon 
                 class="material-icons-outlined"
                 matBadgePosition="before"
-                matBadge="2"
+                [matBadge]="totalItems$ | async"
                 matBadgeColor="accent"
                 matBadgeSize="small">
                 shopping_cart

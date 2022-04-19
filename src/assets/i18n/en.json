@@ -7,7 +7,7 @@
         "cart": "cart"
     },
     "header": {
-        "cart-tooltip": "Cart amount: {{amount}}"
+        "cart-tooltip": "Cart amount: {{amount}}€"
     },
     "home": {
         "card": {
@@ -19,6 +19,22 @@
         "list": {
             "title": "List of available cards",
             "no-data": "No card found..."
+        }
+    },
+    "cart": {
+        "title": "My cart",
+        "no-data": "Your cart is empty...",
+        "table": {
+            "id": "Identifier",
+            "ref": "Reference",
+            "name": "Name",
+            "quantity": "Quantity",
+            "unit-price": "Unit price",
+            "total-amount-price": "Total price",
+            "modify": "Modify",        
+            "add": "Add",        
+            "remove": "Remove",
+            "total": "TOTAL"        
         }
     }
 }

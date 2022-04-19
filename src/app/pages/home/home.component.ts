@@ -21,10 +21,10 @@ export class HomeComponent {
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
 
-  isLoading$ = this.store$.select(selectPokemonCardsIsLoading);
-  isLoaded$ = this.store$.select(selectPokemonCardsIsLoaded);
-  filteredPokemonCards$ = this.store$.select(filteredPokemonCards);
-  rarities$ = this.store$.select(selectRarities);
+  public readonly isLoading$ = this.store$.select(selectPokemonCardsIsLoading);
+  public readonly isLoaded$ = this.store$.select(selectPokemonCardsIsLoaded);
+  public readonly filteredPokemonCards$ = this.store$.select(filteredPokemonCards);
+  public readonly rarities$ = this.store$.select(selectRarities);
 
   selectedRarities: string[] = [];
 
