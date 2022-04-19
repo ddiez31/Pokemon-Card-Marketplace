@@ -6,7 +6,7 @@
     </mat-card-title-group>
     <mat-card-content>
         <p class="content">{{ pokemonCard.flavorText }}</p>
-        <span class="mat-card-title price">{{ pokemonCard.cardmarket.prices.trendPrice }}€</span>
+        <span class="mat-card-title price">{{ pokemonCard.cardmarket.prices.trendPrice.toFixed(2) }}€</span>
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions class="mat-card-actions" fxLayout="row" fxLayoutAlign="space-around center">
@@ -15,10 +15,10 @@
             <input matInput type="number" [(ngModel)]="value" min="0">
         </mat-form-field>
         <div class="button-group">
-            <button mat-mini-fab [disabled]="value === 0" color="primary" (click)="addCart()">
+            <button mat-mini-fab [disabled]="value === 0" color="primary" (click)="addItemToCart(pokemonCard)">
                 <mat-icon>add_shopping_cart</mat-icon>
             </button>
-            <button mat-mini-fab [disabled]="value === 0" color="warn" (click)="reset()">
+            <button mat-mini-fab [disabled]="value === 0" color="warn" (click)="resetValue()">
                 <mat-icon>delete</mat-icon>
             </button>
         </div>
