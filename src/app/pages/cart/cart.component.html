@@ -1,59 +1,68 @@
-<h1>{{ 'cart.title' | translate }}</h1>
+<div class="container">
+    <h1>{{ 'cart.title' | translate }}</h1>
+    
+    <ng-container *ngIf="shoppingCart$ | async as shoppingCart">
+        <ng-container *ngIf="shoppingCart.length > 0; else noData">
+            <table mat-table [dataSource]="shoppingCart" class="mat-elevation-z8">
+                <ng-container matColumnDef="ref">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.ref' | translate }}</th>
+                    <td mat-cell *matCellDef="let element">{{ element.ref }}</td>
+                    <td mat-footer-cell *matFooterCellDef>{{ 'cart.table.total' | translate }}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.name' | translate }}</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                    <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>    
+            
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.quantity' | translate }}</th>
+                    <td mat-cell *matCellDef="let element">{{ element.totalItem }}</td>
+                    <td mat-footer-cell *matFooterCellDef>{{ total.item }}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="unit-price">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.unit-price' | translate }}</th>
+                    <td mat-cell *matCellDef="let element">{{ element.unitPrice.toFixed(2) }}€</td>
+                    <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>    
+            
+                <ng-container matColumnDef="total-amount-price">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.total-amount-price' | translate }}</th>
+                    <td mat-cell *matCellDef="let element">{{ element.totalAmount.toFixed(2) }}€</td>
+                    <td mat-footer-cell *matFooterCellDef>{{ total.amount.toFixed(2) }}€</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.modify' | translate }}</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="primary" (click)="updateCart(cartActions.ADD, element)">
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button color="accent" (click)="updateCart(cartActions.REMOVE, element)">
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="updateCart(cartActions.RESET, element)">
+                            <mat-icon>remove_shopping_cart</mat-icon>
+                        </button>
+                    </td>
+                    <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+            </table>  
+        </ng-container>
 
-<ng-container *ngIf="shoppingCart$ | async as shoppingCart">
-    <ng-container *ngIf="shoppingCart.length > 0; else noData">
-        <table mat-table [dataSource]="shoppingCart" class="mat-elevation-z8">
-            <ng-container matColumnDef="ref">
-                <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.ref' | translate }}</th>
-                <td mat-cell *matCellDef="let element">{{ element.ref }}</td>
-                <td mat-footer-cell *matFooterCellDef>{{ 'cart.table.total' | translate }}</td>
-            </ng-container>
-            
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.name' | translate }}</th>
-                <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-                <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>    
-        
-            <ng-container matColumnDef="quantity">
-                <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.quantity' | translate }}</th>
-                <td mat-cell *matCellDef="let element">{{ element.totalItem }}</td>
-                <td mat-footer-cell *matFooterCellDef>{{ total.item }}</td>
-            </ng-container>
-            
-            <ng-container matColumnDef="unit-price">
-                <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.unit-price' | translate }}</th>
-                <td mat-cell *matCellDef="let element">{{ element.unitPrice.toFixed(2) }}€</td>
-                <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>    
-        
-            <ng-container matColumnDef="total-amount-price">
-                <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.total-amount-price' | translate }}</th>
-                <td mat-cell *matCellDef="let element">{{ element.totalAmount.toFixed(2) }}€</td>
-                <td mat-footer-cell *matFooterCellDef>{{ total.amount.toFixed(2) }}€</td>
-            </ng-container>
-            
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef>{{ 'cart.table.modify' | translate }}</th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-icon-button color="primary" (click)="updateCart(cartActions.ADD, element)">
-                        <mat-icon>add_circle</mat-icon>
-                    </button>
-                    <button mat-icon-button color="accent" (click)="updateCart(cartActions.REMOVE, element)">
-                        <mat-icon>remove_circle</mat-icon>
-                    </button>
-                    <button mat-icon-button color="warn" (click)="updateCart(cartActions.RESET, element)">
-                        <mat-icon>remove_shopping_cart</mat-icon>
-                    </button>
-                </td>
-                <td mat-footer-cell *matFooterCellDef></td>
-            </ng-container>
-            
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
-        </table>  
+        <ng-template #noData>{{ 'cart.no-data' | translate }}</ng-template>
+
+        <div *ngIf="shoppingCart.length > 0" fxLayout="row" fxLayoutAlign="end center">
+            <button mat-raised-button color="primary" (click)="openSnackBar()">
+                {{ 'cart.command' | translate }}
+            </button>
+        </div>
     </ng-container>
-    <ng-template #noData>{{ 'cart.no-data' | translate }}</ng-template>
-</ng-container>    
+</div>
      

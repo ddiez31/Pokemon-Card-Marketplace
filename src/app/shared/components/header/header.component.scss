@@ -1,7 +1,7 @@
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 101;
     img:hover {
         cursor: pointer;
     }

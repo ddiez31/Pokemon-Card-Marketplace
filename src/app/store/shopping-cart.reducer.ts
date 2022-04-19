@@ -5,7 +5,8 @@ import {
     loadingShoppingCartError,
     addItemToShoppingCart,
     updateItemFromShoppingCart,
-    resetItemFromShoppingCart
+    resetItemFromShoppingCart,
+    resetShoppingCart
 } from './shopping-cart.actions';
 import { initialShoppingCartState, ShoppingCartState } from './shopping-cart.state';
 
@@ -44,6 +45,10 @@ export const shoppingCartReducer = createReducer<ShoppingCartState>(
     on(resetItemFromShoppingCart, (state, { id }) => ({
         ...state,
         shoppingCart: state.shoppingCart.filter(item => item.id !== id)
+    })),
+    on(resetShoppingCart, (state) => ({
+        ...state,
+        shoppingCart: []
     }))
 );
 

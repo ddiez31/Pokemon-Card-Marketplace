@@ -8,6 +8,7 @@ export enum ActionTypes {
     ADD_ITEM_TO_SHOPPING_CART = '[Shopping Cart] Add Item',
     UPDATE_ITEM_FROM_SHOPPING_CART = '[Shopping Cart] Update Item +/-',
     RESET_ITEM_FROM_SHOPPING_CART = '[Shopping Cart] Reset Item',
+    RESET_SHOPPING_CART = '[Shopping Cart] Reset All',
 }
 
 export const loadingShoppingCart = createAction(
@@ -37,4 +38,8 @@ export const updateItemFromShoppingCart = createAction(
 export const resetItemFromShoppingCart = createAction(
     ActionTypes.RESET_ITEM_FROM_SHOPPING_CART,
     props<{ id: string }>()
-  );
+);
+
+export const resetShoppingCart = createAction(
+    ActionTypes.RESET_SHOPPING_CART
+);
