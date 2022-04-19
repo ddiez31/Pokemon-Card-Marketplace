@@ -1,5 +1,5 @@
-import { ActionReducerMap, MetaReducer } from '@ngrx/store';
-import { environment } from '../../environments/environment';
+import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { storageSync } from '@larscom/ngrx-store-storagesync';
 import * as fromPokemonCard from './pokemon-card.state';
 import * as fromPokemonCardReducer from './pokemon-card.reducer';
 import * as fromShoppingCart from './shopping-cart.state';
@@ -15,10 +15,19 @@ export const reducers: ActionReducerMap<State> = {
   [fromShoppingCart.shoppingCartFeatureKey]: fromShoppingCartReducer.reducer
 };
 
-export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? []
-  : [];
+export const metaReducers: MetaReducer<State>[] = [storageSyncReducer];
 
 export const REDUCERS_TOKEN = new InjectionToken<ActionReducerMap<State>>('App Reducers');
 
 export const reducerProvider = { provide: REDUCERS_TOKEN, useValue: reducers };
+
+export function storageSyncReducer(reducer: ActionReducer<State>): ActionReducer<State> {
+  const metaReducer = storageSync<State>({
+    features: [
+      { stateKey: fromShoppingCart.shoppingCartFeatureKey, storageForFeature: window.localStorage }
+    ],
+    storage: window.localStorage
+  });
+
+  return metaReducer(reducer);
+}
