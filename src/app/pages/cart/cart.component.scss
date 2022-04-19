@@ -1,6 +1,10 @@
-table {
-    width: 100%;
-    tr.mat-footer-row {
-        font-weight: bold;
+.container {
+    margin-top: 75px;
+    table {
+        width: 100%;
+        margin-bottom: 24px;
+        tr.mat-footer-row {
+            font-weight: bold;
+        }
     }
 }

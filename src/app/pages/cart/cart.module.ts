@@ -7,6 +7,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
     FlexLayoutModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class CartModule { }

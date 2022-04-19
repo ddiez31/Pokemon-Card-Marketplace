@@ -1,4 +1,4 @@
-<div *ngIf="isLoading$ | async" fxLayout="row" fxLayoutAlign="center center">
+<div *ngIf="isLoading$ | async" fxLayout="row" fxLayoutAlign="center center" class="spinner">
     <mat-progress-spinner
         *ngIf="isLoading$ | async"
         [color]="color"
@@ -7,29 +7,27 @@
 </div>
 
 <ng-container *ngIf="isLoaded$ | async as isLoaded">
-    <div class="container">
-        <span>{{ 'home.filter.title' | translate }}:</span>
-        <mat-selection-list class="block" (selectionChange)="onListSelectionChange($event)" fxLayout="row" fxLayoutGap="20px">
-            <mat-list-option class="item" *ngFor="let rarity of rarities$ | async" [value]="rarity">
-                {{ rarity }}
-            </mat-list-option>
-        </mat-selection-list>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div class="container">
-        <span>{{ 'home.list.title' | translate }}:</span>
-        <div *ngIf="isLoaded" class="block" fxLayout="row" fxLayoutGap="20px">
-            <ng-container *ngIf="filteredPokemonCards$ | async as filteredPokemonCards">
-                <ng-container *ngIf="filteredPokemonCards.length > 0; else noData">
-                    <ng-container *ngFor="let pokemonCard of filteredPokemonCards$ | async">
-                        <app-card [pokemonCard]="pokemonCard"></app-card>
-                    </ng-container>
-                </ng-container>
-                <ng-template #noData>{{ 'home.list.no-data' | translate }}</ng-template>
-            </ng-container>            
-        </div>
-    </div>
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav mode="side" opened fixedInViewport="true" fixedTopGap="100" class="sidenav">
+            <div class="container">
+                <app-filter></app-filter>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="container">
+                <span>{{ 'home.list.title' | translate }}:</span>
+                <div *ngIf="isLoaded" class="block" fxLayout="row" fxLayoutGap="20px">
+                    <ng-container *ngIf="filteredPokemonCards$ | async as filteredPokemonCards">
+                        <ng-container *ngIf="filteredPokemonCards.length > 0; else noData">
+                            <ng-container *ngFor="let pokemonCard of filteredPokemonCards$ | async">
+                                <app-card [pokemonCard]="pokemonCard"></app-card>
+                            </ng-container>
+                        </ng-container>
+                        <ng-template #noData>{{ 'home.list.no-data' | translate }}</ng-template>
+                    </ng-container>            
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </ng-container>
 

@@ -2,9 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CartActions } from '@models/cart-actions.enum';
 import { ShoppingCartItem } from '@models/shopping-cart.model';
 import { Store } from '@ngrx/store';
-import { resetItemFromShoppingCart, updateItemFromShoppingCart } from 'app/store/shopping-cart.actions';
+import { resetItemFromShoppingCart, resetShoppingCart, updateItemFromShoppingCart } from 'app/store/shopping-cart.actions';
 import { selectShoppingCart } from 'app/store/shopping-cart.selectors';
-import { Subscription } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
@@ -24,7 +26,11 @@ export class CartComponent implements OnInit, OnDestroy {
   public readonly displayedColumns: string[] = ['ref', 'name', 'quantity', 'unit-price', 'total-amount-price', 'action'];
   public readonly cartActions = CartActions;
 
-  constructor(private readonly store$: Store) { }
+  constructor(
+    private readonly store$: Store,
+    private readonly snackBar: MatSnackBar,
+    private readonly translateService: TranslateService
+  ) { }
 
   ngOnInit(): void {
     this._subscription.add(
@@ -70,6 +76,18 @@ export class CartComponent implements OnInit, OnDestroy {
         this.store$.dispatch(resetItemFromShoppingCart({ id: item.id }));
         break;
     }
+  }
+
+  openSnackBar(): void {
+    this._subscription.add(
+      this.snackBar.open(this.translateService.instant('cart.thanks'), '', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        duration: 2000
+      }).afterOpened()
+        .pipe(tap(() => this.store$.dispatch(resetShoppingCart())))
+        .subscribe()
+    );
   }
 
   ngOnDestroy(): void {

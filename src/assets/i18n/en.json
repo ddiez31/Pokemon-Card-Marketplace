@@ -14,7 +14,9 @@
             "quantity": "Quantity"
         },
         "filter": {
-            "title": "Filter by rarity"
+            "title": "Filter by rarity",
+            "other-single": "other",
+            "other-multi": "others"
         },
         "list": {
             "title": "List of available cards",
@@ -24,6 +26,8 @@
     "cart": {
         "title": "My cart",
         "no-data": "Your cart is empty...",
+        "thanks": "Thanks a lot for your command", 
+        "command": "Command",
         "table": {
             "id": "Identifier",
             "ref": "Reference",

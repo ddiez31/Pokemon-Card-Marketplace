@@ -4,8 +4,7 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatListModule } from '@angular/material/list';
-import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -20,8 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     FlexLayoutModule,
     MatProgressSpinnerModule,
-    MatListModule,
-    MatDividerModule
+    MatSidenavModule
   ]
 })
 export class HomeModule { }

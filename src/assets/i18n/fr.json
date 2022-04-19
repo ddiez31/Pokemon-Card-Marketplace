@@ -14,7 +14,9 @@
             "quantity": "Quantité"
         },
         "filter": {
-            "title": "Filtre par rareté"
+            "title": "Filtre par rareté",
+            "other-single": "autre",
+            "other-multi": "autres"
         },
         "list": {
             "title": "Liste des cartes disponibles",
@@ -24,6 +26,8 @@
     "cart": {
         "title": "Mon panier",
         "no-data": "Votre panier est vide...",
+        "thanks": "Merci pour votre commande", 
+        "command": "Commander",
         "table": {
             "id": "Identifiant",
             "ref": "Référence",

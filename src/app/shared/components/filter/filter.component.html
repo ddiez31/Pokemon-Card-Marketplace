@@ -1,0 +1,20 @@
+<ng-container *ngIf="rarities$ | async as rarities">
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'home.filter.title' | translate }}:</mat-label>
+        <mat-select multiple (selectionChange)="onSelectionChange($event)" class="select">
+            <mat-select-trigger>
+                {{ selectedRarities ? selectedRarities[0] : '' }}
+                <span *ngIf="selectedRarities.length > 1">
+                  (+{{ selectedRarities.length - 1 }} {{ selectedRarities.length === 2 ? ('home.filter.other-single' | translate ) : ('home.filter.other-multi' | translate ) }})
+                </span>
+              </mat-select-trigger>
+          <mat-option *ngFor="let rarity of rarities" [value]="rarity">{{ rarity }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-chip-list>
+        <mat-chip *ngFor="let rarity of selectedRarities" selected color="accent" class="chip">
+            {{ rarity }}
+        </mat-chip>
+      </mat-chip-list>
+</ng-container>

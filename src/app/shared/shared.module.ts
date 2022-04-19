@@ -12,18 +12,23 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { PokemonCardService } from './services/pokemon-card.service';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,
@@ -42,10 +47,13 @@ import { PokemonCardService } from './services/pokemon-card.service';
     MatInputModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatChipsModule,
+    MatSnackBarModule
   ],
-  exports: [HeaderComponent, CardComponent],
+  exports: [HeaderComponent, CardComponent, FilterComponent],
   providers: [PokemonCardService]
 })
 export class SharedModule { }
