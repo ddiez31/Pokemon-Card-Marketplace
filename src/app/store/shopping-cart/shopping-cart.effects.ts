@@ -7,7 +7,7 @@ import {
     loadingShoppingCartSuccess,
     loadingShoppingCartError
 } from './shopping-cart.actions';
-import { selectShoppingCart } from 'app/store/shopping-cart.selectors';
+import { selectShoppingCart } from './shopping-cart.selectors';
 
 @Injectable()
 export class ShoppingCartEffects {

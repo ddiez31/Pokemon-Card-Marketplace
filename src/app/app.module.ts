@@ -18,9 +18,9 @@ import { LANG } from '@models/lang.model';
 import { HomeModule } from './pages/home/home.module';
 import { HttpModule } from './config/http.module';
 import { HttpInterceptorService } from './services/http-interceptor.service';
-import { PokemonCardsEffects } from './store/pokemon-card.effects';
-import { ShoppingCartEffects } from './store/shopping-cart.effects';
 import { CartModule } from './pages/cart/cart.module';
+import { PokemonCardsEffects } from '@store/pokemon-card/pokemon-card.effects';
+import { ShoppingCartEffects } from '@store/shopping-cart/shopping-cart.effects';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

@@ -23,7 +23,8 @@
       "dom"
     ],
     "paths": {
-      "@models/*": ["app/shared/models/*"]
+      "@models/*": ["app/shared/models/*"],
+      "@store/*": ["app/store/*"]
     }
   },
   "angularCompilerOptions": {

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { PokemonCard } from '@models/pokemon-card.model';
 import { ShoppingCartItem } from '@models/shopping-cart.model';
 import { Store } from '@ngrx/store';
-import { addItemToShoppingCart } from 'app/store/shopping-cart.actions';
+import { addItemToShoppingCart } from '@store/shopping-cart/shopping-cart.actions';
 import { v4 as uuid } from 'uuid';
 
 @Component({

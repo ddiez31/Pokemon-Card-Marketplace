@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { Store } from '@ngrx/store';
-import { setRaritiesChoice } from 'app/store/pokemon-card.actions';
-import { selectRarities } from 'app/store/pokemon-card.selectors';
+import { setRaritiesChoice } from '@store/pokemon-card/pokemon-card.actions';
+import { selectRarities } from '@store/pokemon-card/pokemon-card.selectors';
 
 @Component({
   selector: 'app-filter',
