@@ -8,13 +8,18 @@
 
 <ng-container *ngIf="isLoaded$ | async as isLoaded">
     <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav mode="side" opened fixedInViewport="true" fixedTopGap="100" class="sidenav">
+        <mat-sidenav #sideNav mode="side" [appFixedFrom]="960" fixedInViewport="true" fixedTopGap="100" class="sidenav">
             <div class="container">
                 <app-filter></app-filter>
             </div>
-        </mat-sidenav>
+        </mat-sidenav>        
         <mat-sidenav-content>
             <div class="container">
+                <mat-toolbar class="toolbar">
+                    <button mat-mini-fab color="primary" (click)="sideNav.toggle()">
+                      <mat-icon>menu</mat-icon>
+                    </button>
+                </mat-toolbar>
                 <span>{{ 'home.list.title' | translate }}:</span>
                 <div *ngIf="isLoaded" class="block" fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngIf="filteredPokemonCards$ | async as filteredPokemonCards">
