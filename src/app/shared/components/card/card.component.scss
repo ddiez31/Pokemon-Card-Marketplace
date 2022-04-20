@@ -1,0 +1,39 @@
+.card {
+    width: 275px;
+    margin-bottom: 8px; 
+
+    img {
+        z-index: 1;
+        transition: 0.2s;
+        &:hover {
+            transform: scale(2);
+        }
+    }
+    
+    .content {
+        margin-top: 8px;
+        height: 60px;
+    }
+    
+    .price {
+        text-align: end;
+    }
+    
+    .mat-card-actions {
+        margin: auto;
+
+        .form-field {
+          width: 100px;
+          margin-right: 12px;
+        }
+
+        .button-group {
+            width: 100%;
+            margin: 0 12px;
+
+            button {
+                margin: 0 12px;
+            }
+        }
+    }
+}

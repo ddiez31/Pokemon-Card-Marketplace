@@ -1,0 +1,182 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*", "dist", "coverage"],
+  "parserOptions": {
+      "ecmaVersion": 2020
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": ["eslint-plugin-rxjs-angular"],
+      "rules": {
+        "prettier/prettier": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@angular-eslint/component-selector": [
+            "error",
+            {
+                "type": "element",
+                "prefix": "app",
+                "style": "kebab-case"
+            }
+        ],
+        "@angular-eslint/directive-selector": [
+            "error",
+            {
+                "type": "attribute",
+                "prefix": "app",
+                "style": "camelCase"
+            }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/member-delimiter-style": [
+            "off",
+            {
+                "multiline": {
+                    "delimiter": "none",
+                    "requireLast": true
+                },
+                "singleline": {
+                    "delimiter": "semi",
+                    "requireLast": false
+                }
+            }
+        ],
+        "@typescript-eslint/semi": ["off", null],
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "@angular-eslint/use-component-view-encapsulation": "error",
+        "@typescript-eslint/adjacent-overload-signatures": "off",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/dot-notation": "error",
+        "@typescript-eslint/explicit-member-accessibility": [
+            "off",
+            {
+                "accessibility": "explicit"
+            }
+        ],
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-shadow": [
+            "off",
+            {
+                "hoist": "all"
+            }
+        ],
+        "arrow-parens": ["off", "always"],
+        "brace-style": "error",
+        "import/order": "off",
+        "eol-last": "error",
+        "indent": ["off", 2],
+        "jsdoc/no-types": "off",
+        "linebreak-style": "off",
+        "new-parens": "error",
+        "newline-per-chained-call": "off",
+        "no-extra-semi": "off",
+        "no-irregular-whitespace": "off",
+        "no-trailing-spaces": "warn",
+        "space-in-parens": ["off", "never"],
+        "no-multiple-empty-lines": "error",
+        "no-shadow": "off",
+        "no-unused-expressions": "off",
+        "padded-blocks": [
+            "error",
+            {
+                "blocks": "never",
+                "classes": "never"
+            },
+            {
+                "allowSingleLineBlocks": true
+            }
+        ],
+        "quotes": ["error", "single"],
+        "semi": "off",
+        "no-console": "warn",
+        "@typescript-eslint/member-ordering": [
+            "error",
+            {
+                "default": [
+                    "signature",
+                    "public-decorated-field",
+                    "private-field",
+                    "protected-field",
+                    "public-field",
+                    "constructor",
+                    "public-method",
+                    "protected-method",
+                    "private-method"
+                ]
+            }
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "enum",
+                "format": ["PascalCase"]
+            },
+            {
+                "selector": "enumMember",
+                "format": ["UPPER_CASE"]
+            }
+        ],
+        "padding-line-between-statements": [
+            "error",
+            {
+                "blankLine": "always",
+                "prev": [
+                    "const",
+                    "let",
+                    "var",
+                    "multiline-const",
+                    "multiline-let",
+                    "multiline-var",
+                    "expression"
+                ],
+                "next": [
+                    "for",
+                    "while",
+                    "switch",
+                    "block-like",
+                    "multiline-block-like",
+                    "if"
+                ]
+            },
+            {
+                "blankLine": "always",
+                "prev": [
+                    "for",
+                    "while",
+                    "switch",
+                    "block-like",
+                    "multiline-block-like",
+                    "if"
+                ],
+                "next": "*"
+            }
+        ],
+        "no-underscore-dangle": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "prettier/prettier": "off"
+      }
+    }
+  ]
+}

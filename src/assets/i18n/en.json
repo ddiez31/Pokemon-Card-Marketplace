@@ -1,0 +1,44 @@
+{
+    "app-name": "Pokemon Card Marketplace",
+    "titles": {
+        "cart": "cart"
+    },
+    "routes": {
+        "cart": "cart"
+    },
+    "header": {
+        "cart-tooltip": "Cart amount: {{amount}}€"
+    },
+    "home": {
+        "card": {
+            "quantity": "Quantity"
+        },
+        "filter": {
+            "title": "Filter by rarity",
+            "other-single": "other",
+            "other-multi": "others"
+        },
+        "list": {
+            "title": "List of available cards",
+            "no-data": "No card found..."
+        }
+    },
+    "cart": {
+        "title": "My cart",
+        "no-data": "Your cart is empty...",
+        "thanks": "Thanks a lot for your command", 
+        "command": "Command",
+        "table": {
+            "id": "Identifier",
+            "ref": "Reference",
+            "name": "Name",
+            "quantity": "Quantity",
+            "unit-price": "Unit price",
+            "total-amount-price": "Total price",
+            "modify": "Modify",        
+            "add": "Add",        
+            "remove": "Remove",
+            "total": "TOTAL"        
+        }
+    }
+}

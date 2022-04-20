@@ -1,0 +1,20 @@
+.block {
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.item {
+    max-width: 200px;
+}
+
+.sidenav-container {
+    background: transparent;
+    margin-top: var(--space-to-top);
+    .sidenav {
+        width: 260px;
+    }
+}
+
+.spinner {
+    margin-top: var(--space-to-top);
+}

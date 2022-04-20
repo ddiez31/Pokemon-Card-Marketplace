@@ -1,0 +1,26 @@
+<mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title>{{ pokemonCard.name }}</mat-card-title>
+      <mat-card-subtitle>{{ pokemonCard.rarity }}</mat-card-subtitle>
+      <img mat-card-md-image [src]="pokemonCard.images.small" >
+    </mat-card-title-group>
+    <mat-card-content>
+        <p class="content">{{ pokemonCard.flavorText }}</p>
+        <span class="mat-card-title price">{{ pokemonCard.cardmarket.prices.trendPrice.toFixed(2) }}€</span>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions class="mat-card-actions" fxLayout="row" fxLayoutAlign="space-around center">
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>{{ "home.card.quantity" | translate }}</mat-label>
+            <input matInput type="number" [(ngModel)]="value" min="0">
+        </mat-form-field>
+        <div class="button-group">
+            <button mat-mini-fab [disabled]="value === 0" color="primary" (click)="addItemToCart(pokemonCard)">
+                <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+            <button mat-mini-fab [disabled]="value === 0" color="warn" (click)="resetValue()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>

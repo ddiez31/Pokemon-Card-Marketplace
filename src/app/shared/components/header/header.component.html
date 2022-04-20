@@ -1,0 +1,25 @@
+<mat-toolbar class="navbar" color="primary" fxLayoutAlign="space-between center">
+    <img src="./assets/images/logo.png" (click)="navigateTo(ROUTES.HOME)">
+
+    <div>
+        <button 
+            mat-icon-button
+            [matTooltip]="'header.cart-tooltip' | translate: {amount: (totalAmount$ | async)?.toFixed(2)}"
+            (click)="navigateTo(ROUTES.CART)">
+            <mat-icon 
+                class="material-icons-outlined"
+                matBadgePosition="before"
+                [matBadge]="totalItems$ | async"
+                matBadgeColor="accent"
+                matBadgeSize="small">
+                shopping_cart
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="changeLang(lang.FR)">
+            <img src="./assets/images/fr-flag-icon.png">
+        </button>    
+        <button mat-icon-button (click)="changeLang(lang.EN)">
+            <img src="./assets/images/uk-flag-icon.png">
+        </button>
+    </div>
+</mat-toolbar>
