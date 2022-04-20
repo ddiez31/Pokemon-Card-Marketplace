@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { loadingPokemonCards, loadingRarities } from '@store/pokemon-card/pokemon-card.actions';
 import { State } from 'app/store';
-import { loadingPokemonCards, loadingRarities } from 'app/store/pokemon-card.actions';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

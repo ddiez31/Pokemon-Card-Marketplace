@@ -4,7 +4,7 @@ import { LANG } from '@models/lang.model';
 import { ROUTES } from '@models/routes.model';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import { selectShoppingCartTotalAmount, selectShoppingCartTotalItems } from 'app/store/shopping-cart.selectors';
+import { selectShoppingCartTotalItems, selectShoppingCartTotalAmount } from '@store/shopping-cart/shopping-cart.selectors';
 
 @Component({
   selector: 'app-header',

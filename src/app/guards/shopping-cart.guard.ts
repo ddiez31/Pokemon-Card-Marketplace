@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { loadingShoppingCart } from '@store/shopping-cart/shopping-cart.actions';
 import { State } from 'app/store';
-import { loadingShoppingCart } from 'app/store/shopping-cart.actions';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

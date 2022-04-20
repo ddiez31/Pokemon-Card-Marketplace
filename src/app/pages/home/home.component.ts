@@ -3,10 +3,10 @@ import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { Store } from '@ngrx/store';
 import {
-  filteredPokemonCards,
-  selectPokemonCardsIsLoaded,
   selectPokemonCardsIsLoading,
-} from 'app/store/pokemon-card.selectors';
+  selectPokemonCardsIsLoaded,
+  filteredPokemonCards
+} from '@store/pokemon-card/pokemon-card.selectors';
 
 @Component({
   selector: 'app-home',

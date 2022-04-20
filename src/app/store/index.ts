@@ -1,9 +1,9 @@
 import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { storageSync } from '@larscom/ngrx-store-storagesync';
-import * as fromPokemonCard from './pokemon-card.state';
-import * as fromPokemonCardReducer from './pokemon-card.reducer';
-import * as fromShoppingCart from './shopping-cart.state';
-import * as fromShoppingCartReducer from './shopping-cart.reducer';
+import * as fromPokemonCard from './pokemon-card/pokemon-card.state';
+import * as fromPokemonCardReducer from './pokemon-card/pokemon-card.reducer';
+import * as fromShoppingCart from './shopping-cart/shopping-cart.state';
+import * as fromShoppingCartReducer from './shopping-cart/shopping-cart.reducer';
 import { InjectionToken } from '@angular/core';
 export interface State {
   [fromPokemonCard.pokemonCardsFeatureKey]: fromPokemonCard.PokemonCardState;

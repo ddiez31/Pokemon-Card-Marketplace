@@ -9,12 +9,12 @@
 
 .sidenav-container {
     background: transparent;
-    margin-top: 75px;
+    margin-top: var(--space-to-top);
     .sidenav {
         width: 260px;
     }
 }
 
 .spinner {
-    margin-top: 75px;
+    margin-top: var(--space-to-top);
 }

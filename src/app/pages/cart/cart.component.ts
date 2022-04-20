@@ -2,11 +2,15 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CartActions } from '@models/cart-actions.enum';
 import { ShoppingCartItem } from '@models/shopping-cart.model';
 import { Store } from '@ngrx/store';
-import { resetItemFromShoppingCart, resetShoppingCart, updateItemFromShoppingCart } from 'app/store/shopping-cart.actions';
-import { selectShoppingCart } from 'app/store/shopping-cart.selectors';
 import { Subscription, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import {
+  resetItemFromShoppingCart,
+  resetShoppingCart,
+  updateItemFromShoppingCart
+} from '@store/shopping-cart/shopping-cart.actions';
+import { selectShoppingCart } from '@store/shopping-cart/shopping-cart.selectors';
 
 @Component({
   selector: 'app-cart',
