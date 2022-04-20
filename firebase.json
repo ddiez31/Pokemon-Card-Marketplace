@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/pokemon-card-marketplace",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

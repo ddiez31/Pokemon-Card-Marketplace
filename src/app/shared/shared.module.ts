@@ -23,6 +23,7 @@ import { CardComponent } from './components/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { PokemonCardService } from './services/pokemon-card.service';
 import { FilterComponent } from './components/filter/filter.component';
+import { SidenavModule } from './directives/sidenav/sidenav.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FilterComponent } from './components/filter/filter.component';
     TranslateModule,
     RouterModule,
     FormsModule,
+    SidenavModule,
 
     MatToolbarModule,
     MatButtonModule,
