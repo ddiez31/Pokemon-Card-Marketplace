@@ -6,9 +6,9 @@ import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [PokemonCardGuard, ShoppingCartGuard] },
+  { path: '', component: HomeComponent, canActivate: [PokemonCardGuard, ShoppingCartGuard] },
   { path: 'cart', component: CartComponent, data: {title: 'titles.cart'}, canActivate: [ShoppingCartGuard] },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
